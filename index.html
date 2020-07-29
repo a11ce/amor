@@ -1,0 +1,22 @@
+<html>
+  <head>
+	<title>amor</title>
+	<script type="text/javascript" src="langlist.js"></script>
+	<script type="text/javascript">
+	  function pickLang(){
+		return langs[Math.floor(Math.random()*(langs.length))];
+	  }
+	  window.onload = function() {
+	  lang = pickLang().split(",");
+	  document.getElementById("text").textContent=lang[0];
+	  document.getElementById("lang").textContent=lang[1];
+	  }
+	</script>
+  </head>
+  <body>
+
+    <h1 id="text"></h1>
+    <h3 id="lang"></h3>
+  </body>
+</html>
+
