@@ -1,22 +1,36 @@
 <html>
   <head>
 	<title>amor</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
 	<script type="text/javascript" src="langlist.js"></script>
 	<script type="text/javascript">
+	  function hsv2rgb(h,s,v) 
+	  {                              
+	    let f= (n,k=(n+h/60)%6) => v - v*s*Math.max( Math.min(k,4-k,1), 0);     
+	    return [f(5),f(3),f(1)];       
+	  }   
+	  function randInt(min, max) {  
+	    return Math.floor(Math.random() * (max - min + 1) + min);
+	  }
 	  function pickLang(){
 		return langs[Math.floor(Math.random()*(langs.length))];
 	  }
+	  
 	  window.onload = function() {
 	  lang = pickLang().split(",");
 	  document.getElementById("text").textContent=lang[0];
 	  document.getElementById("lang").textContent=lang[1];
+
+      h = randInt(0,360);
+      s = randInt(45,100);
+      l = randInt(70, 85);
+	  document.body.style.backgroundColor = "hsl("+h+","+s+"%,"+l+"%)"
 	  }
 	</script>
   </head>
   <body>
-
-    <h1 id="text"></h1>
-    <h3 id="lang"></h3>
+        <h1 id="text"></h1>
+        <h3 id="lang"></h3>
   </body>
 </html>
 
